@@ -1,0 +1,381 @@
+import React, { useState } from 'react';
+import { 
+  TrendingUp, 
+  Search, 
+  Users, 
+  BarChart3, 
+  Brain, 
+  Award, 
+  Briefcase, 
+  ChevronRight, 
+  Mail,
+  CheckCircle2,
+  ExternalLink
+} from 'lucide-react';
+
+const App = () => {
+  const [activeTab, setActiveTab] = useState('achievements');
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-800">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center">
+            <div className="font-bold text-xl text-blue-900 tracking-tight">
+              R.Tada <span className="text-slate-400 font-normal text-sm ml-2">SEO Consultant</span>
+            </div>
+            <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+              <button onClick={() => scrollToSection('about')} className="hover:text-blue-600 transition-colors">経歴</button>
+              <button onClick={() => scrollToSection('achievements')} className="hover:text-blue-600 transition-colors">実績</button>
+              <button onClick={() => scrollToSection('skills')} className="hover:text-blue-600 transition-colors">スキル・AI</button>
+              <button onClick={() => scrollToSection('philosophy')} className="hover:text-blue-600 transition-colors">モットー</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <header className="relative bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 z-0"></div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                北海道在住 / 24歳 / フリーランス
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                データと<span className="text-blue-600">AI</span>で、<br />
+                確実な成果を。
+              </h1>
+              <p className="text-lg text-slate-600 max-w-xl leading-relaxed">
+                多田 諒聖（ただ りょうせい）と申します。<br/>
+                SEOコンサルタントとして、泥臭いリサーチから最新AIを活用した効率化まで、
+                クライアント様の売上最大化にコミットします。
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-lg shadow-sm border border-slate-100">
+                  <TrendingUp className="w-5 h-5 text-green-500" />
+                  <span className="text-sm font-bold">月間15万PV → 25万PV</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-lg shadow-sm border border-slate-100">
+                  <Search className="w-5 h-5 text-blue-500" />
+                  <span className="text-sm font-bold">BigKW 1位獲得</span>
+                </div>
+              </div>
+            </div>
+            <div className="w-full md:w-1/3 flex justify-center">
+              {/* Profile Image Placeholder */}
+              <div className="relative w-64 h-64 md:w-80 md:h-80 bg-gradient-to-tr from-blue-200 to-slate-200 rounded-full flex items-center justify-center overflow-hidden border-4 border-white shadow-2xl">
+                <span className="text-slate-400 font-bold text-6xl">SEO</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Experience Timeline */}
+      <section id="about" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-slate-900">経歴</h2>
+            <p className="mt-2 text-slate-500">SEOの最前線での経験と、再起をかけた挑戦</p>
+          </div>
+
+          <div className="relative border-l-2 border-slate-200 ml-4 md:ml-0 md:pl-8 space-y-12">
+            <div className="relative pl-8 md:pl-0">
+              <div className="absolute -left-[9px] md:-left-[41px] top-0 w-5 h-5 bg-blue-600 rounded-full border-4 border-white shadow-sm"></div>
+              <div className="md:flex gap-8">
+                <div className="md:w-32 text-sm font-bold text-slate-400 mb-2 md:mb-0">2023年<br/><span className="font-normal text-xs">大学4年</span></div>
+                <div className="flex-1 bg-slate-50 p-6 rounded-xl border border-slate-100">
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">SEO事業インターンとして参画</h3>
+                  <p className="text-slate-600 text-sm mb-2">現Stock Sun認定パートナーの事業にて活動。「ビッグモーター」関連の記事制作などを担当し、WebライティングとSEOの基礎を叩き込む。</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative pl-8 md:pl-0">
+              <div className="absolute -left-[9px] md:-left-[41px] top-0 w-5 h-5 bg-blue-600 rounded-full border-4 border-white shadow-sm"></div>
+              <div className="md:flex gap-8">
+                <div className="md:w-32 text-sm font-bold text-slate-400 mb-2 md:mb-0">2024年<br/><span className="font-normal text-xs">新卒フリーランス</span></div>
+                <div className="flex-1 bg-slate-50 p-6 rounded-xl border border-slate-100">
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">SEOディレクター/コンサルタントへ昇格</h3>
+                  <p className="text-slate-600 text-sm mb-2">月100本規模の記事納品体制を構築。作業者としての圧倒的な量をこなし、現場での実務能力を高める。</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative pl-8 md:pl-0">
+              <div className="absolute -left-[9px] md:-left-[41px] top-0 w-5 h-5 bg-blue-600 rounded-full border-4 border-white shadow-sm"></div>
+              <div className="md:flex gap-8">
+                <div className="md:w-32 text-sm font-bold text-slate-400 mb-2 md:mb-0">2025年<br/><span className="font-normal text-xs">現在</span></div>
+                <div className="flex-1 bg-slate-50 p-6 rounded-xl border border-slate-100">
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">売上Top獲得と新たなスタート</h3>
+                  <p className="text-slate-600 text-sm mb-4">
+                    事業メンバー内で売上Topを記録。6月に病を患い入院。事業から抜ける。10月に快調後、現在は最新のAI技術（Gemini/Claude等）を駆使し、より効率的かつ高品質なSEOコンサルティングを提供。
+                  </p>
+                  <div className="inline-flex items-center text-xs font-semibold bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">
+                    <Brain className="w-3 h-3 mr-1" />
+                    AI活用強化中
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section id="achievements" className="py-20 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-slate-900">主な実績</h2>
+            <p className="mt-2 text-slate-500">ビッグワード上位表示から、地域密着型MEOまで幅広い成果</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Case 1 */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">失業保険メディア</span>
+                  <BarChart3 className="text-slate-300 w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">施策開始7ヶ月で月間15万→25万PVへ</h3>
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
+                    DR（ドメインランク） 19 → 30
+                  </div>
+                  <div className="flex items-center text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
+                    クライアント売上 約1.5倍上昇
+                  </div>
+                </div>
+                <div className="bg-slate-50 p-3 rounded-lg text-sm text-slate-600">
+                  <p className="font-semibold mb-1">施策内容（月30〜50万円）:</p>
+                  KW設計 / リライト設計 / コンテンツ制作 / 被リンク獲得代行
+                </div>
+              </div>
+            </div>
+
+            {/* Case 2 */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">IT/ソフトウェア</span>
+                  <Search className="text-slate-300 w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">BigKW「csvとは」にて1〜3位獲得</h3>
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
+                    検索Vol 23,000(当時)のクエリで上位化
+                  </div>
+                  <div className="flex items-center text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
+                    初月成果により月80万円の追加発注を獲得
+                  </div>
+                </div>
+                <div className="bg-slate-50 p-3 rounded-lg text-sm text-slate-600">
+                  <p className="font-semibold mb-1">補足:</p>
+                  <span className="text-xs">メディアの強さ(DR:60相当)による要因も大きいため、一概に私の実力とはいえません。</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Case 3 */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="bg-pink-100 text-pink-800 text-xs font-bold px-3 py-1 rounded-full">美容サロンメディア</span>
+                  <Users className="text-slate-300 w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Buyクエリ上位表示＆CV数1.2倍</h3>
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
+                    「地域名＋〇〇＋おすすめ」で1〜3位表示
+                  </div>
+                  <div className="flex items-center text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
+                    内部SEO（テクニカル）提案も実施
+                  </div>
+                </div>
+                <div className="bg-slate-50 p-3 rounded-lg text-sm text-slate-600">
+                  <p className="font-semibold mb-1">施策内容（月20万円）:</p>
+                  KW設計 / リライト / コンテンツ制作 / テクニカルSEO
+                </div>
+              </div>
+            </div>
+
+            {/* Case 4 */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="bg-orange-100 text-orange-800 text-xs font-bold px-3 py-1 rounded-full">工務店メディア</span>
+                  <Award className="text-slate-300 w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">圏外から1ページ目へ＆SEO経由CV達成</h3>
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
+                    「地域名＋平屋/2世帯」でランクイン
+                  </div>
+                  <div className="flex items-center text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
+                    SEO経由のCV（0→1）を達成
+                  </div>
+                </div>
+                <div className="bg-slate-50 p-3 rounded-lg text-sm text-slate-600">
+                  <p className="font-semibold mb-1">施策内容（月20万円）:</p>
+                  施工事例ページ改修 / テクニカル領域提案
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Supported Industries Cloud */}
+          <div className="mt-16 text-center">
+            <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6">過去支援業界・メディア</h3>
+            <div className="flex flex-wrap justify-center gap-2">
+              {[
+                '失業保険', 'リノベーション', '人事評価システム', '物流代行', '車関連', 
+                '就職・転職(3社)', 'IT/SaaS(2社)', '広告', '留学', 'FX/金融', 
+                '工務店(MEO)', '美容サロン(MEO)', 'サウナ(MEO)', '整体院(MEO)'
+              ].map((item, idx) => (
+                <span key={idx} className="bg-white border border-slate-200 text-slate-600 px-4 py-2 rounded-full text-sm">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills & AI Section */}
+      <section id="skills" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row gap-12">
+            
+            <div className="flex-1">
+              <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <Brain className="w-8 h-8 text-blue-600 mr-3" />
+                AI活用スキル
+              </h2>
+              <p className="text-slate-600 mb-8">
+                単なる記事作成だけでなく、プロンプトエンジニアリングを駆使して分析・構成・執筆を効率化。
+                Web制作エンジニアとしての学習も並行し、技術的な視点も強化しています。
+              </p>
+              
+              <div className="space-y-4">
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 className="font-bold text-slate-800 mb-2">生成AI (課金済み環境)</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {['Gemini Pro (Nano Banana Pro)', 'Claude', 'ChatGPT', 'NotebookLM', '動画生成AI'].map((tool) => (
+                      <span key={tool} className="text-xs font-semibold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-xs text-slate-500 mt-2">※新規記事/リライト記事のプロンプトを自身で構築可能</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-1">
+              <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <Briefcase className="w-8 h-8 text-blue-600 mr-3" />
+                SEO・分析ツール
+              </h2>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <div className="font-bold text-slate-800 mb-1">Google Analytics 4</div>
+                  <div className="text-xs text-slate-500">アクセス解析・CV計測</div>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <div className="font-bold text-slate-800 mb-1">Search Console</div>
+                  <div className="text-xs text-slate-500">検索パフォーマンス分析</div>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <div className="font-bold text-slate-800 mb-1">Ahrefs</div>
+                  <div className="text-xs text-slate-500">競合調査・KW選定</div>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <div className="font-bold text-slate-800 mb-1">GAS (Google Apps Script)</div>
+                  <div className="text-xs text-slate-500">レポート自動化・カスタマイズ</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy/Motto */}
+      <section id="philosophy" className="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute right-0 bottom-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute left-0 top-0 w-64 h-64 bg-indigo-500 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10">仕事へのモットー</h2>
+          
+          <blockquote className="text-xl md:text-2xl font-light leading-relaxed mb-10 italic">
+            "SEOは結果が見えづらい。<br className="md:hidden"/>それが定説だとしても、<br/>
+            クライアント様がお金を投じている以上、<br/>
+            <span className="text-blue-400 font-bold">必ず時間をかけてでも結果をお出しする。</span>"
+          </blockquote>
+
+          <div className="grid md:grid-cols-2 gap-8 text-left max-w-2xl mx-auto">
+            <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
+              <h4 className="font-bold text-lg mb-2 text-blue-300">成果への責任</h4>
+              <p className="text-slate-300 text-sm">
+                納品物にご納得いただいた上で結果が出なければ、バックアッププランの提供や、場合によっては無償対応も厭わない精神で取り組んでおります。
+              </p>
+            </div>
+            <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
+              <h4 className="font-bold text-lg mb-2 text-blue-300">長期的な信頼関係</h4>
+              <p className="text-slate-300 text-sm">
+                結果として、現在お取引させていただいている企業様は1年以上継続していただいているところがほとんどです。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Footer */}
+      <section id="contact" className="py-16 bg-white border-t border-slate-200">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">金額・お見積もりについて</h2>
+          <p className="text-slate-600 mb-8">
+            金額感に関してはご提示額にて準じますが、アシスタントとしての力量や納品物の質を見て<br/>
+            ご判断いただければ幸いです。<br/>
+            ※品質によって費用を上げて欲しいという話ではなく、<br/>伊藤様にとって低い品質だった場合、費用を下げていただく形でも問題ございません。
+            
+          </p>
+        </div>
+      </section>
+
+      <footer className="bg-slate-50 py-8 border-t border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 text-center text-slate-400 text-sm">
+          &copy; {new Date().getFullYear()} Ryosei Tada. All rights reserved.
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
