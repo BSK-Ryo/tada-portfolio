@@ -1,0 +1,399 @@
+import React, { useState } from 'react';
+import { 
+  TrendingUp, 
+  Search, 
+  Users, 
+  BarChart, 
+  Award, 
+  CheckCircle, 
+  Mail, 
+  MessageCircle, 
+  ExternalLink,
+  Cpu,
+  PenTool,
+  Briefcase,
+  ChevronDown
+} from 'lucide-react';
+
+const Portfolio = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // 実績データ
+  const achievements = [
+    {
+      title: "失業保険メディア",
+      metric: "月間15万PV → 25万PV",
+      subMetric: "DR 19 → 30",
+      description: "KW設計、リライト、被リンク獲得代行を実施。クライアント売上も1.5倍に上昇。",
+      period: "7ヶ月",
+      icon: <TrendingUp className="w-8 h-8 text-blue-600" />
+    },
+    {
+      title: "IT/ソフトウェアメディア",
+      metric: "BigKW「csvとは」1位〜3位",
+      subMetric: "月検索Vol 23,000",
+      description: "初月で上位表示を達成し、月80万円の追加発注を獲得。高DRを活かした設計。",
+      period: "初月達成",
+      icon: <Search className="w-8 h-8 text-blue-600" />
+    },
+    {
+      title: "美容サロンメディア",
+      metric: "CV数 1.2倍",
+      subMetric: "Buyクエリ上位表示",
+      description: "「地域名＋〇〇＋おすすめ」等の収益直結クエリで上位獲得。内部SEOも提案。",
+      period: "継続支援",
+      icon: <Users className="w-8 h-8 text-blue-600" />
+    },
+    {
+      title: "工務店メディア (MEO/SEO)",
+      metric: "SEO経由CV 0 → 1",
+      subMetric: "圏外 → 1ページ目",
+      description: "「地域名＋平屋」などで上位化。施工事例ページの改修を行いCV発生へ貢献。",
+      period: "継続支援",
+      icon: <BarChart className="w-8 h-8 text-blue-600" />
+    }
+  ];
+
+  // 業界リスト
+  const industries = [
+    "失業保険", "リノベーション", "人事評価システム", "物流代行", "自動車関連",
+    "就職・転職(3社)", "IT/SaaS(2社)", "広告関連", "留学", "FX/金融",
+    "工務店", "美容サロン", "サウナ", "整体院"
+  ];
+
+  // ツールリスト
+  const tools = [
+    "GA4", "Search Console", "Ahrefs", "KW Planner", "GAS (Google Apps Script)"
+  ];
+  
+  const aiTools = [
+    "Gemini Pro (1.5)", "Claude", "ChatGPT", "NotebookLM", "動画生成AI"
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
+      {/* Header */}
+      <header className="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-xl font-bold text-slate-900 tracking-tight">
+            Ryousei Tada<span className="text-blue-600">.SEO</span>
+          </h1>
+          
+          {/* Mobile Menu Button */}
+          <button onClick={toggleMenu} className="md:hidden text-slate-600">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+            </svg>
+          </button>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+            <a href="#about" className="hover:text-blue-600 transition">About</a>
+            <a href="#service" className="hover:text-blue-600 transition">Service</a>
+            <a href="#works" className="hover:text-blue-600 transition">Works</a>
+            <a href="#philosophy" className="hover:text-blue-600 transition">Philosophy</a>
+            <a href="#contact" className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">Contact</a>
+          </nav>
+        </div>
+
+        {/* Mobile Nav */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t p-4 space-y-4 shadow-lg">
+            <a href="#about" onClick={toggleMenu} className="block text-slate-600">About</a>
+            <a href="#service" onClick={toggleMenu} className="block text-slate-600">Service</a>
+            <a href="#works" onClick={toggleMenu} className="block text-slate-600">Works</a>
+            <a href="#philosophy" onClick={toggleMenu} className="block text-slate-600">Philosophy</a>
+            <a href="#contact" onClick={toggleMenu} className="block text-blue-600 font-bold">Contact</a>
+          </div>
+        )}
+      </header>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-slate-900 to-slate-800 text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute right-0 top-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute left-10 bottom-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto max-w-5xl relative z-10 text-center md:text-left md:flex items-center">
+          <div className="md:w-3/5">
+            <div className="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-semibold mb-4 border border-blue-500/30">
+              SEO Consultant / Director
+            </div>
+            <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+              正攻法のSEOと<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400">最先端のAI活用</span>で<br />
+              成果を最大化する。
+            </h2>
+            <p className="text-slate-300 text-lg mb-8 leading-relaxed max-w-xl">
+              多田 諒聖（ただ りょうせい）と申します。北海道在住のSEOコンサルタント・ディレクター。<br/>
+              単なる「納品」ではなく、「事業成長」にコミットするパートナーとして伴走します。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a href="#works" className="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-semibold transition shadow-lg shadow-blue-900/50">
+                実績を見る
+              </a>
+              <a href="#contact" className="px-8 py-3 bg-transparent border border-slate-600 hover:border-white text-slate-300 hover:text-white rounded-lg font-semibold transition">
+                お問い合わせ
+              </a>
+            </div>
+          </div>
+          
+          <div className="md:w-2/5 mt-12 md:mt-0 flex justify-center">
+             <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 max-w-xs w-full shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500">
+               <div className="flex items-center gap-3 mb-4">
+                 <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
+                   <TrendingUp className="text-white w-6 h-6" />
+                 </div>
+                 <div>
+                   <p className="text-xs text-slate-400">実績ハイライト</p>
+                   <p className="font-bold text-lg">月間25万PV達成</p>
+                 </div>
+               </div>
+               <div className="space-y-3">
+                 <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                   <div className="h-full w-4/5 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full"></div>
+                 </div>
+                 <p className="text-xs text-slate-300 text-right">前年比 166% Growth</p>
+               </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About / Career Section */}
+      <section id="about" className="py-20 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-bold mb-4 text-slate-900">About Me</h3>
+            <p className="text-slate-600">経歴と背景</p>
+          </div>
+
+          <div className="relative border-l-2 border-blue-200 ml-4 md:ml-0 md:pl-8 space-y-12">
+            <div className="relative">
+              <div className="absolute -left-[25px] md:-left-[41px] top-0 w-5 h-5 bg-blue-600 rounded-full border-4 border-white"></div>
+              <div className="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                <span className="text-sm text-blue-600 font-bold">2023年 (大学4年)</span>
+                <h4 className="text-xl font-bold mt-1 mb-2">Stock Sun認定パートナー SEO事業部参画</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  インターン生として参画し、当時話題性が高まっていた「ビッグモーター」関連の記事制作などを担当。SEOの基礎と現場感覚を叩き込まれる。
+                </p>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -left-[25px] md:-left-[41px] top-0 w-5 h-5 bg-blue-600 rounded-full border-4 border-white"></div>
+              <div className="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                <span className="text-sm text-blue-600 font-bold">2024年 (新卒フリーランス)</span>
+                <h4 className="text-xl font-bold mt-1 mb-2">SEOディレクター / コンサルタントへ昇格</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  月100本規模の記事制作をディレクション。パートナーの強力な営業力にも支えられ、事業部内で売上Topを獲得。
+                  <br/><span className="text-xs text-slate-400 mt-2 block">※「作業者」として泥臭く結果を出すことに注力しました。</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -left-[25px] md:-left-[41px] top-0 w-5 h-5 bg-teal-500 rounded-full border-4 border-white"></div>
+              <div className="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                <span className="text-sm text-teal-600 font-bold">2025年 - 現在</span>
+                <h4 className="text-xl font-bold mt-1 mb-2">再起とAI活用の深化</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  6月に一時病気療養のため事業を離れるも、10月に完全復帰。現在は「AI×SEO」を武器に、フリーランスとして活動を再開。最新のLLMを活用したコンテンツ生成フローの構築を得意とする。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Works / Achievements */}
+      <section id="works" className="py-20 px-4 bg-slate-100">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-bold mb-4 text-slate-900">Achievements</h3>
+            <p className="text-slate-600">主な支援実績</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {achievements.map((item, index) => (
+              <div key={index} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-300 border border-slate-200">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    {item.icon}
+                  </div>
+                  <span className="bg-slate-100 text-slate-600 text-xs px-3 py-1 rounded-full font-medium">
+                    {item.period}
+                  </span>
+                </div>
+                <h4 className="text-lg font-bold text-slate-800 mb-2">{item.title}</h4>
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="text-2xl font-bold text-blue-600">{item.metric}</span>
+                </div>
+                {item.subMetric && (
+                  <p className="text-sm font-semibold text-teal-600 mb-4">{item.subMetric}</p>
+                )}
+                <p className="text-slate-600 text-sm leading-relaxed border-t pt-4 border-slate-100">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-sm text-slate-500 mb-4">支援実績のある業界・ジャンル</p>
+            <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
+              {industries.map((industry, i) => (
+                <span key={i} className="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs text-slate-600">
+                  {industry}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy */}
+      <section id="philosophy" className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-4xl">
+          <div className="bg-gradient-to-br from-slate-900 to-blue-900 text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-6">
+                <Award className="w-8 h-8 text-yellow-400" />
+                <h3 className="text-2xl font-bold">Policy & Motto</h3>
+              </div>
+              
+              <h4 className="text-xl md:text-3xl font-bold leading-relaxed mb-8">
+                「SEOは時間がかかる」を言い訳にせず、<br/>
+                結果が出るまで伴走します。
+              </h4>
+
+              <div className="space-y-6 text-slate-300 leading-relaxed">
+                <p>
+                  「前提としてSEOは結果が見えづらい」「半年〜1年はかかる」。
+                  これらは定説であり事実ですが、クライアント様が投資をしている以上、私は必ず結果をお返ししたいと考えています。
+                </p>
+                <p>
+                  万が一、納品物にご納得いただいた上で結果が出なければ、バックアッププランの提供や、場合によっては無償対応も厭わない覚悟で取り組んでおります。
+                  現在お取引させていただいている企業様のほとんどが1年以上の長期契約となっているのは、この姿勢をご評価いただけているからだと自負しております。
+                </p>
+              </div>
+
+              <div className="mt-8 pt-8 border-t border-white/20 flex flex-col md:flex-row gap-6 md:items-center">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="text-teal-400 w-5 h-5" />
+                  <span className="font-semibold">品質重視の納品</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="text-teal-400 w-5 h-5" />
+                  <span className="font-semibold">柔軟な対応力</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="text-teal-400 w-5 h-5" />
+                  <span className="font-semibold">成果コミット型</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills & Tools */}
+      <section id="service" className="py-20 px-4">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-bold mb-4 text-slate-900">Skills & Tools</h3>
+            <p className="text-slate-600">SEOの知見とAI技術の融合</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* AI Tools */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+              <div className="flex items-center gap-3 mb-6">
+                <Cpu className="w-6 h-6 text-purple-600" />
+                <h4 className="text-xl font-bold">AI / LLM活用</h4>
+              </div>
+              <p className="text-sm text-slate-600 mb-6">
+                自身でプロンプトを構築し、高品質な記事制作・リライトを効率化。最新のAIモデルを課金利用し、検証を続けています。
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {aiTools.map((tool, i) => (
+                  <span key={i} className="px-3 py-1 bg-purple-50 text-purple-700 text-sm font-medium rounded-md">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* SEO Tools */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+              <div className="flex items-center gap-3 mb-6">
+                <PenTool className="w-6 h-6 text-blue-600" />
+                <h4 className="text-xl font-bold">SEO / Analytics</h4>
+              </div>
+              <p className="text-sm text-slate-600 mb-6">
+                定量的なデータ分析に基づいたご提案が可能です。GASを活用し、クライアント様用にカスタマイズしたレポート構築も対応します。
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {tools.map((tool, i) => (
+                  <span key={i} className="px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-md">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-20 px-4 bg-slate-50 border-t border-slate-200">
+        <div className="container mx-auto max-w-3xl text-center">
+          <h3 className="text-3xl font-bold mb-4 text-slate-900">Contact</h3>
+          <p className="text-slate-600 mb-12">
+            お仕事のご依頼、ご相談などお気軽にご連絡ください。<br/>
+            Facebookはあまり利用していないとお見受けしましたので、よろしければご活用くださいませ。
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center hover:border-red-500 transition cursor-pointer group">
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-500 transition">
+                <MessageCircle className="w-6 h-6 text-red-600 group-hover:text-white" />
+              </div>
+              <h4 className="font-bold text-slate-800 mb-1">ChatWork</h4>
+              <p className="text-slate-500 text-sm mb-4">ビジネスのご連絡に</p>
+              <div className="bg-slate-100 px-4 py-2 rounded text-slate-700 font-mono text-sm select-all">
+                Ryousei_Tada
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center hover:border-green-500 transition cursor-pointer group">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-green-500 transition">
+                <MessageCircle className="w-6 h-6 text-green-600 group-hover:text-white" />
+              </div>
+              <h4 className="font-bold text-slate-800 mb-1">LINE</h4>
+              <p className="text-slate-500 text-sm mb-4">お気軽なご相談に</p>
+              <div className="bg-slate-100 px-4 py-2 rounded text-slate-700 font-mono text-sm select-all">
+                ryousei042623
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-12 text-sm text-slate-500">
+            <p>※個人アカウントとなりますが、ご承知おきくださいませ。</p>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+        <div className="container mx-auto px-4">
+          <p>© 2026 Ryousei Tada. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Portfolio;
